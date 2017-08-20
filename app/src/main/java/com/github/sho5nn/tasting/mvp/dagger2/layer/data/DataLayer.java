@@ -12,7 +12,6 @@ public class DataLayer implements ArchitectureLayer<DataComponent> {
   public DataLayer(ApplicationLayer applicationLayer) {
     component = applicationLayer.getComponent()
       .dataComponentBuilderMap().get(DataComponent.class)
-      .dataModule(new DataModule())
       .userDataModule(new UserDataModule())
       .friendDataModule(new FriendDataModule())
       .build();

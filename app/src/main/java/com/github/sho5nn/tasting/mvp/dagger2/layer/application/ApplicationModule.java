@@ -20,10 +20,4 @@ public class ApplicationModule {
   Context provideApplicationContext() {
     return application.getApplicationContext();
   }
-
-  @ApplicationScope
-  @Provides
-  SomethingApplicationScopeObject provideSomethingApplicationScopeObject() {
-    return new SomethingApplicationScopeObject();
-  }
 }

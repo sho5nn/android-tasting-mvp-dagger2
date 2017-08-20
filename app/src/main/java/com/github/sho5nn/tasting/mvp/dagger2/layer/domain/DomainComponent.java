@@ -8,12 +8,11 @@ import java.util.Map;
 import dagger.Subcomponent;
 
 @DomainScope
-@Subcomponent(modules = {DomainModule.class, PresentationComponentBuilderModule.class})
+@Subcomponent(modules = {PresentationComponentBuilderModule.class})
 public interface DomainComponent extends ISubcomponent {
 
   @Subcomponent.Builder
   interface Builder extends ISubcomponent.Builder<DomainComponent> {
-    Builder domainModule(DomainModule module);
   }
 
   Map<Class<PresentationComponent>, PresentationComponent.Builder> presentationComponentBuilderMap();

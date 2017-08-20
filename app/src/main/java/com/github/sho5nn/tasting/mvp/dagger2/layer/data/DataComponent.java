@@ -11,7 +11,6 @@ import dagger.Subcomponent;
 
 @DataScope
 @Subcomponent(modules = {
-  DataModule.class,
   UserDataModule.class,
   FriendDataModule.class,
   DomainComponentBuilderModule.class
@@ -20,7 +19,6 @@ public interface DataComponent extends ISubcomponent {
 
   @Subcomponent.Builder
   interface Builder extends ISubcomponent.Builder<DataComponent> {
-    Builder dataModule(DataModule module);
     Builder userDataModule(UserDataModule module);
     Builder friendDataModule(FriendDataModule module);
   }
