@@ -7,8 +7,8 @@ public class PresentationLayer implements ArchitectureLayer<PresentationComponen
 
   private PresentationComponent component;
 
-  public PresentationLayer(DomainLayer layer) {
-    component = layer.getComponent()
+  public PresentationLayer(DomainLayer domainLayer) {
+    component = domainLayer.getComponent()
       .presentationComponentBuilderMap().get(PresentationComponent.class)
       .presentationModule(new PresentationModule())
       .build();

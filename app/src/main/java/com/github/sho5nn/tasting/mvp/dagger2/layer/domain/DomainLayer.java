@@ -7,8 +7,8 @@ public class DomainLayer implements ArchitectureLayer<DomainComponent> {
 
   private DomainComponent component;
 
-  public DomainLayer(DataLayer layer) {
-    component = layer.getComponent()
+  public DomainLayer(DataLayer dataLayer) {
+    component = dataLayer.getComponent()
       .domainComponentBuilderMap().get(DomainComponent.class)
       .domainModule(new DomainModule())
       .build();
