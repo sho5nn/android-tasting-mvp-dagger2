@@ -4,7 +4,9 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 
 import com.github.sho5nn.tasting.mvp.dagger2.layer.domain.usecase.UserUseCase;
+import com.github.sho5nn.tasting.mvp.dagger2.layer.presentation.SomethingPresentationScopeObject;
 import com.github.sho5nn.tasting.mvp.dagger2.layer.presentation.view.BasePresenter;
+import com.github.sho5nn.tasting.mvp.dagger2.layer.presentation.view.SomethingViewScopeObject;
 
 public interface UserPresenter extends BasePresenter {
 
@@ -14,9 +16,15 @@ public interface UserPresenter extends BasePresenter {
 
     private UserView view;
     private UserUseCase userUseCase;
+    private SomethingPresentationScopeObject somethingPresentationScopeObject;
+    private SomethingViewScopeObject somethingViewScopeObject;
 
-    public UserPresenterImpl(UserUseCase userUseCase) {
+    public UserPresenterImpl(UserUseCase userUseCase,
+                             SomethingPresentationScopeObject somethingPresentationScopeObject,
+                             SomethingViewScopeObject somethingViewScopeObject) {
       this.userUseCase = userUseCase;
+      this.somethingPresentationScopeObject = somethingPresentationScopeObject;
+      this.somethingViewScopeObject = somethingViewScopeObject;
     }
 
     @Override
@@ -28,6 +36,8 @@ public interface UserPresenter extends BasePresenter {
     @Override
     public String toString() {
       return getClass().getSimpleName() + "@" + Integer.toHexString(hashCode()) +
+        "\n    - " + somethingViewScopeObject +
+        "\n    - " + somethingPresentationScopeObject +
         "\n    - " + userUseCase;
     }
   }
